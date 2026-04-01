@@ -33,7 +33,7 @@ const candidate_approval = async (req, res) => {
     const message = "your application accepted";
 
     const candidate_gmail = get_candidate.email;
-    sendMsg(candidate_gmail, message);
+    sendMsg(candidate_gmail,message);
     
     //take complete detail of the candidate from db to publish
     const candidate_data = await Candidate.findById(candidate_id);
@@ -43,7 +43,7 @@ const candidate_approval = async (req, res) => {
     redisPublisher.publish("approved_candidate_chanel", JSON.stringify(candidate_data));
     res.status(100).json({
         message: "status updated"
-    })//based on this update the frontend 
+})//based on this update the frontend 
 
 }
 const candidate_reject = async (req, res) => {
