@@ -21,7 +21,7 @@ exports.sendMsg = async(email,message)=>{
     from: process.env.EMAIL_USER,
     to: email,
     subject: "mail from admin",
-    text:'${message}'
+    text:message
   });
 };
 
