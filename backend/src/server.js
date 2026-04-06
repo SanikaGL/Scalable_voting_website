@@ -20,7 +20,7 @@ const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
 io.on("connection", (socket) => {
-   console.log("A client connected:", socket.id);
+   console.log("A client connected to socket:", socket.id);
 });// when in frontend uses io it executes this 
 
 
