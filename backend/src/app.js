@@ -7,6 +7,8 @@ const candidate_approval = require("./routes/candidate.approval.routes.js")
 const admin_preload = require("./routes/admin-preload.routes.js")
 const admin_logout = require("./routes/admin-logout.routes.js");
 const admin_login = require("./routes/admin-login.routes.js");
+const publics_page_data = require("./controllers/public-page-data.js")
+const voter_page_route = requir("./routes/voter-page-load")
 const { admin_token_verify, admin_Only} = require("./middleware/admin.token.verify.js");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -46,6 +48,6 @@ app.use("/login",login);//handles voter  login related routes
 app.use("/candidate-approval",candidate_approval);//handles candidate approval or rejection routes
 app.use("/admin-preload",admin_preload);//handles candidate data tpreload in the admin page to accept or reject candidate
 app.use("/admin-logout",admin_logout);//handles admin logout route
+app.get("/public-page",publics_page_data.load_data)
+app.use("/voter-page",voter_page_route)
 module.exports = app;//exporting app so that it can be used in server.js
-
-        
