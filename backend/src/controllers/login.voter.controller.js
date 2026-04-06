@@ -68,7 +68,7 @@ exports.login_verify = async(req,res)=>{//voter login verifier function
     
      const token = jwt.sign(
       {
-        email: check.email,
+        email: user.email,
         role: "admin"
       },
       process.env.JWT_SECRET,
