@@ -12,7 +12,7 @@ exports.login_otp= async(req,res)=>{ // when they click send otp then this funct
         message: "Email is required"
       });
      }
-     const user_found = voter.findOne({email});
+     const user_found = await voter.findOne({email}); //--------->>>>>>>>>>>>>>>. here await
      if(user_found && user_found.isVerified){
           await otpService.createAndSendOtp(email);
           return res.status(200).json({
